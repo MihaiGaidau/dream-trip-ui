@@ -1,0 +1,20 @@
+footer {
+  background-color: black;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 100px;
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: -100px;
+}
+
+.plane-image {
+  width: 200px;
+  height: 100px;
+  margin-left: 800px
+}
+.info-data{
+  color: white;
+  margin-top: 10px;
+}

@@ -1,0 +1,7 @@
+<div *ngFor="let toast of toastService.toasts; index as i"
+     class="toast toast-{{toast.type}}"
+     [style.bottom.px]="i*100">
+  <h4 class="toast-heading">{{toast.title}}</h4>
+  <p>{{toast.message}}</p>
+  <a class="close" (click)="remove(i)">&times;</a>
+</div>

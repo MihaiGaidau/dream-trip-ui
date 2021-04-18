@@ -1,0 +1,25 @@
+<div class="row" style="padding-top: 20px">
+  <div class="col-xs-2 first-div">
+    <div class="container">
+      <ul>
+        <li>
+          <button class="custom-button" routerLink="./airports/overview"> Airports</button>
+        </li>
+        <li>
+          <button class="custom-button" routerLink="./flights/overview">Flights</button>
+        </li>
+        <li>
+          <button class="custom-button" routerLink="./tickets/overview">Tickets</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-xs-2 space">
+  </div>
+  <div class="col-10 second-div">
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+

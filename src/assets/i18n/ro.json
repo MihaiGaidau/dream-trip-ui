@@ -1,0 +1,57 @@
+{
+  "header": {
+    "nav": {
+      "home": "Acasă",
+      "service": "Servicii",
+      "about": "Despre",
+      "contact": "Contacte"
+    }
+  },
+  "login": "Autentificare",
+  "footer": {
+    "address": "Chisinau Moldova",
+    "phone": "Sună-ne",
+    "question": "Întrebări",
+    "links": "Link-uri utile",
+    "terms": "",
+    "questions": {
+      "0": "CUM SA REZERV UN BILET DE AVION?",
+      "1": "ANULAREA REZERVARII BILETULUI?",
+      "2": "REGULAMENTUL DESPRE FURNIZAREA SERVICIILOR",
+      "3": "POLITICA DE CONFIDENTIALITATE"
+    }
+  },
+  "flight-search": {
+    "flight-question": "UNDE VREȚI",
+    "flight-question-bold": "SĂ MERGEȚI?",
+    "from": "De la ",
+    "to": "Către",
+    "departure-date": "Data de plecare",
+    "return-date": "Data de întoarcere",
+    "passengers": "Pasageri",
+    "one-way": "Într-o direcție",
+    "round-trip": "Tur-Retur",
+    "book-now": "Caută zbor",
+    "placeholder": {
+      "from": "Chisinau",
+      "to": "Berlin, Germany",
+      "date": "01-01-2021",
+      "passenger": "1 Adult"
+    }
+  },
+  "about":{
+    "title": "Despre",
+    "1":{
+      "title": "ANULAREA REZERVARII BILETULUI?",
+      "content":"Pentru a anula sau modifica biletul achiziționat de pe www.dreamtrip.md vă rugăm să contactați centrul nostru de asistență pentru clienți online la booking@dreamTrip.com. Toate anularile sau modificările biletului de călătorie se fac în conformitate cu regulile tarifului aplicabil care, în anumite cazuri, implică aplicarea penalităților de anulare / modificare. "
+    },
+    "2":{
+      "title": "CUM SA REZERV UN BILET DE AVION?",
+      "content": "Plata cu cardul de credit este acceptată - carduri Visa International, MasterCard International și AMEX valabile. Plata integrală va fi dedusă din contul cardului dvs. de credit în momentul achiziției. Nicio plată nu va fi dedusă dacă selectați Anulați rezervarea oricând în timpul sesiunii de rezervare pe Internet. De asemenea, biletul poate fi achitat în cashat toate oficiile poștale situate pe teritoriul Moldovei sau la orice reprezentare a băncilor locale "
+    },
+    "3": {
+      "title": "POLITICA DE CONFIDENTIALITATE",
+      "content": "Compania „Dream Trip” este conștientă și împărtășește dreptul unei persoane de a exercita controlul asupra propriilor sale date personale și despre importanța protecției acestora. Furnizarea de către client a datelor sale personale este un act de încredere din partea acestuia, în timp ce, la rândul său, Compania va lua măsurile necesare pentru a justifica încrederea oferită acestuia. În conformitate cu Legea privind protecția datelor cu caracter personal nr. 133 din 08.07.2011, datele cu caracter personal sunt orice informații referitoare la o persoană identificată sau identificabilă (subiectul datelor cu caracter personal). O persoană identificabilă este cea care poate fi identificată, direct sau indirect, în special prin referire la un număr de identificare sau la unul sau mai mulți factori specifici identității sale fizice, fiziologice, mentale, economice, culturale sau sociale. Orice prelucrare a datelor cu caracter personal, cu excepția celor specificate direct în Legea privind protecția datelor cu caracter personal nr. 133 din 08.07.2011, poate fi efectuată numai dacă o persoană în cauză și-a exprimat consimțământul explicit pentru prelucrarea datelor specificate. În conformitate cu prevederile Legii privind protecția datelor cu caracter personal nr. 133 din 08.07.2011, Compania va colecta date cu caracter personal în scopuri specifice, clare și legitime, în conformitate cu scopurile specificate de prelucrare. Compania va colecta date legate de furnizarea de servicii de transport aerian, precum și pentru alte scopuri legate de realizarea principalelor obiective ale activității sale. Datele personale ale clienților vor fi prelucrate numai în măsura necesară pentru a executa scopuri interne și legitime ale Companiei, sub rezerva tuturor măsurilor legitime pentru a asigura securitatea și confidențialitatea datelor. Compania va extrage datele personale din documentele de identitate ale clienților și din sistemele de supraveghere video. În conformitate cu prevederile art. 12-18 din Legea privind protecția datelor cu caracter personal nr. 133 din 08.07.2011, puteți avea dreptul la informații, dreptul de a accesa datele cu caracter personal, dreptul de a interveni datele cu caracter personal, dreptul de a contesta persoana vizată , dreptul de a nu depinde de deciziile individuale, dreptul de a primi dreptate."
+    }
+  }
+}

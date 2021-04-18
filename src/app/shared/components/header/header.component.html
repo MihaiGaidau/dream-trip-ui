@@ -1,0 +1,65 @@
+<div class="header">
+  <div class="container m-auto h-100">
+    <div class="row no-gutters justify-content-between align-items-center h-100">
+      <div class=" row no-gutters col-3">
+        <a class="title" routerLink="/">Dream Trip</a>
+      </div>
+
+
+      <ul class="row no-gutters col-4 justify-content-between">
+        <li><a routerLink="/home">{{'header.nav.home' | translate}}</a></li>
+        <li><a routerLink="/about">{{'header.nav.about' | translate}}</a></li>
+        <li><a routerLink="/services">{{'header.nav.service' | translate}}</a></li>
+        <li><a routerLink="/contacts">{{'header.nav.contact' | translate}}</a></li>
+      </ul>
+
+      <ul class="col-3  row no-gutters justify-content-between">
+        <li class="no-underline">
+          <input
+            *ngIf="isSearching"
+            [(ngModel)]="search"
+            style="width: 110px"
+            placeholder="Search flight">
+          <i
+            class="fas fa-search"
+            *ngIf="isSearching && search.length > 0"
+            (click)="onSearchAviaDestination()"
+            style="padding-left: 5px"></i>
+          <i
+            class="fas fa-search"
+            *ngIf="!isSearching"
+            (click)="isSearching = !isSearching"></i>
+        </li>
+        <li class="nav-item dropdown no-underline">
+          <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
+             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+             *ngIf="translateService.currentLang">
+            <i class="fas fa-globe mr-2"></i>
+            {{translateService.currentLang | transform}}
+          </a>
+
+          <div class="dropdown-menu  p-0" aria-labelledby="navbarDropdown">
+            <ng-container *ngFor="let lang of translateService.getLangs()">
+              <!--                 [routerLink]="generateTranslateRouteLink(lang)"-->
+              <!--              [queryParamsHandling]="'preserve'"-->
+              <a class="dropdown-item text-center"
+                 (click)="onSelectLang(lang)"
+                 *ngIf="translateService.currentLang !== lang">{{lang | transform}}
+              </a>
+            </ng-container>
+          </div>
+        </li>
+        <li (click)="onOpenLogInModal()" *ngIf="!isLoggedIn"><i class="fas fa-sign-in-alt"></i></li>
+        <li (click)="onLogout()" *ngIf="isLoggedIn"><i class="fas fa-sign-out-alt"></i></li>
+        <p style="padding-top: 10px" *ngIf="isAuthenticated">{{currentUser.username}}</p>
+
+        <app-log-in-modal
+          *ngIf="displayLoginModal"
+          (closeModal)="closeModal($event)">
+        </app-log-in-modal>
+      </ul>
+    </div>
+  </div>
+</div>
+
+

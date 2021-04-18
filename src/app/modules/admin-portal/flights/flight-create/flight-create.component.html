@@ -1,0 +1,56 @@
+<div class="back col-1">
+  <button class="btn btn-danger" (click)="onGoBack()">
+    <i class="fas fa-chevron-left"></i>
+    Back
+  </button>
+</div>
+<div class="fc-view-container col-5" style="padding-top: 20px;">
+  <form [formGroup]="form">
+
+    <div class="form-group">
+      <label>Arrival airport</label>
+      <br>
+      <select formControlName="arrivalAirportId" class="select">
+        <option *ngFor="let airport of (airports$ | async)" [value]="airport.id">{{airport.name}}</option>
+
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Departure airport</label>
+      <br>
+      <select formControlName="departureAirportId" class="select">
+        <option *ngFor="let airport of (airports$ | async)" [value]="airport.id">{{airport.name}}</option>
+
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="arrivalDate"> Arrival date </label>
+      <div class="input-group date-input">
+        <p-calendar [inputStyle]="{'width':'395px'}" inputId="basic" showIcon=true id="arrivalDate"
+                    dateFormat="dd-mm-yy"
+                    formControlName="arrivalDate">
+        </p-calendar>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="departureDate">Departure date</label>
+      <div class="input-group date-input">
+        <p-calendar [inputStyle]="{'width':'395px'}" class="w-100" inputId="basic" showIcon=true id="departureDate"
+                    dateFormat="dd-mm-yy"
+                    formControlName="departureDate">
+        </p-calendar>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="number">Number</label>
+      <input type="number" formControlName="number" class="form-control" id="number" placeholder="Enter number">
+    </div>
+
+
+    <button type="submit" class="btn btn-info" (click)="onSubmit()">Submit</button>
+  </form>
+</div>

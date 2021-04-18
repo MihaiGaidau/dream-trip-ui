@@ -1,0 +1,57 @@
+{
+  "header": {
+    "nav": {
+      "home": "Home",
+      "service": "Service",
+      "about": "About",
+      "contact": "Contact"
+    }
+  },
+  "login": "Login",
+  "footer": {
+    "address": "Chisinau Moldova",
+    "phone": "Call us",
+    "question": "Questions",
+    "links": "Useful links",
+    "terms": "terms",
+    "questions": {
+      "0": "HOW TO RESERVE A PLANE TICKET?",
+      "1": "CANCELLATION OF THE TICKET RESERVATION?",
+      "2": "REGULATION ON THE PROVISION OF SERVICES",
+      "3": "PRIVACY POLICY"
+    }
+  },
+  "flight-search": {
+    "flight-question": "WHERE WOULD YOU",
+    "flight-question-bold": "LIKE TO GO?",
+    "from": "From",
+    "to": "To",
+    "departure-date": "Departure date",
+    "return-date": "Return date",
+    "passengers": "Passengers",
+    "one-way": "One way",
+    "round-trip": "Round trip",
+    "book-now": "Book Now",
+    "placeholder": {
+      "from": "Chisinau",
+      "to": "Berlin, Germany",
+      "date": "01-01-2021",
+      "passenger": "1 Adult"
+    }
+  },
+  "about":{
+    "title": "About",
+    "1":{
+      "title": "Cancel a ticket reservation",
+      "content":"In order to cancel or change your ticket purchased on www.dreamtrip.md please contact our online customer support center at booking@dreamTrip.com. All cancellations or changes to passenger ticket are made in accordance with the rules of the applicable fare which in certain cases imply application of cancellation/changes penalties."
+    },
+    "2":{
+      "title": "HOW TO RESERVE A PLANE TICKET?",
+      "content": "Payment by credit card is accepted - valid Visa International, MasterCard International and AMEX cards. Full payment will be deducted from your credit card account at the time of purchasing. No payment will be deducted, if you select Cancel reservation anytime during your Internet reservation session. Also the ticket can be paid in cashat all post offices situated on the territory of Moldova or at any representation of the local banks"
+    },
+    "3": {
+      "title": "PRIVACY POLICY",
+      "content": "The company “Dream Trip” is aware and shares the right of an individual to exercise control over his/hers own personal data and the importance of its protection. Provision by a customer of his/hers personal data is an act of trust on his/hers part, while, for its part, the Company shall take necessary steps to justify the trust offered to it. In accordance with the Law on personal data protection No. 133 of 08.07.2011, the personal data is any information relating to an identified or identifiable individual (Personal Data Subject). An identifiable person is the one who may be identified, directly or indirectly, in particular by reference to an identification number or to one or more factors specific to his/hers physical, physiological, mental, economic, cultural or social identity. Any personal data processing, except those specified directly in the Law on personal data protection No. 133 of 08.07.2011, may be performed only if an individual concerned has expressed his/hers explicit consent to the specified data processing. In accordance with the provisions of the Law on personal data protection No. 133 of 08.07.2011, the Company shall collect personal data in specific, clear and legitimate goals, in accordance with the specified purposes of processing. The Company shall collect data related to the provision of air transport services, as well as for other purposes related to the achievement of the main objectives of its activity. Customers’ personal data shall be processed only to the extent necessary to execute internal and legitimate purposes of the Company, subject to all legitimate measures to ensure the data security and confidentiality. The Company shall extract personal data from the identity documents of the customers and from the video surveillance systems. In accordance with the provisions of art. 12-18 of the Law on personal data protection No. 133 of 08.07.2011, you may have the right to information, the right to access the personal data, the right to intervene the personal data, the right to demur the personal data subject, the right not to depend on the individual decisions, the right to get justice."
+    }
+  }
+}

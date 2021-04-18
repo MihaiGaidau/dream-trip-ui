@@ -1,0 +1,43 @@
+<div class="fc-view-container">
+  <div class="fc-row" style="padding-top: 30px">
+    <button class="btn btn-primary" (click)="onCreate() "> Create</button>
+  </div>
+  <div class="fc-row" style="padding-top: 30px">
+    <table class="table center">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Seat number</th>
+        <th scope="col">Status</th>
+        <th scope="col">Travel class</th>
+        <th scope="col">Price</th>
+        <th scope="col"></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <th scope="row">...</th>
+        <td>...</td>
+        <td>...</td>
+        <td>...</td>
+        <td>...</td>
+        <td class="crud">
+          <div class="icons row justify-content-center no-gutters">
+            <div class="read">
+              <i class="fas fa-book-open" (click)="onView('id')"></i>
+            </div>
+
+            <div class="modify">
+              <i class="fas fa-edit" (click)="onEdit('id')"></i>
+            </div>
+
+            <div class="delete">
+              <i class="fas fa-trash-alt" (click)="onDelete('id')"></i>
+            </div>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

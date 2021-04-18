@@ -1,0 +1,41 @@
+<div class="fc-view-container">
+  <div class="fc-row" style="padding-top: 30px">
+    <button class="btn btn-primary" (click)="onCreate() "> Create</button>
+  </div>
+  <div class="fc-row" style="padding-top: 30px">
+    <table class="table center">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">City</th>
+        <th scope="col">Code</th>
+        <th scope="col"></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let airport of (airports$ | async); let i = index;">
+        <th scope="row">{{airport.id}}</th>
+        <td>{{airport.name}}</td>
+        <td>{{airport.city}}</td>
+        <td>{{airport.code}}</td>
+        <td class="crud">
+          <div class="icons row justify-content-center no-gutters">
+            <div class="read">
+              <i class="fas fa-book-open" (click)="onView(airport.id)"></i>
+            </div>
+
+            <div class="modify">
+              <i class="fas fa-edit" (click)="onEdit(airport.id)"></i>
+            </div>
+
+            <div class="delete">
+              <i class="fas fa-trash-alt" (click)="onDelete(airport.id)"></i>
+            </div>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

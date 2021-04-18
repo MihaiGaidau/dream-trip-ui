@@ -1,0 +1,68 @@
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+th {
+  font-weight: bold;
+}
+
+.crud {
+  //width: 100%;
+  //min-width: 154px;
+
+  .icons {
+    margin-right: -100px;
+
+    .read {
+      width: 30px;
+      height: 30px;
+      background-color: #727bd1;
+      border-radius: 10px;
+      cursor: pointer;
+      outline: none;
+      text-align: center;
+
+
+      i {
+        color: white;
+        padding-top: 7px;
+      }
+    }
+
+    .modify {
+      width: 30px;
+      height: 30px;
+      background-color: #6bd098;
+      margin-left: 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      outline: none;
+      text-align: center;
+
+
+      i {
+        color: white;
+        padding: 7px 0 0 3px;
+      }
+    }
+
+    .delete {
+      width: 30px;
+      height: 30px;
+      background-color: red;
+      margin-left: 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      opacity: 0.7;
+      outline: none;
+      text-align: center;
+
+
+      i {
+        color: white;
+        padding-top: 7px;
+      }
+    }
+  }
+}
