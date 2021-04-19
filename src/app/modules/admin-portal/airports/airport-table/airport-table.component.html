@@ -14,7 +14,7 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let airport of (airports$ | async); let i = index;">
+      <tr *ngFor="let airport of (airports$ | async)?.content ; let i = index;">
         <th scope="row">{{airport.id}}</th>
         <td>{{airport.name}}</td>
         <td>{{airport.city}}</td>

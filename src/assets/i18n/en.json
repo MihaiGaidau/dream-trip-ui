@@ -29,6 +29,7 @@
     "departure-date": "Departure date",
     "return-date": "Return date",
     "passengers": "Passengers",
+    "ticketPrice": "Ticket price",
     "one-way": "One way",
     "round-trip": "Round trip",
     "book-now": "Book Now",
@@ -36,7 +37,8 @@
       "from": "Chisinau",
       "to": "Berlin, Germany",
       "date": "01-01-2021",
-      "passenger": "1 Adult"
+      "passenger": "1 Adult",
+      "ticketPrice": "Ticket price"
     }
   },
   "about":{
@@ -52,6 +54,32 @@
     "3": {
       "title": "PRIVACY POLICY",
       "content": "The company “Dream Trip” is aware and shares the right of an individual to exercise control over his/hers own personal data and the importance of its protection. Provision by a customer of his/hers personal data is an act of trust on his/hers part, while, for its part, the Company shall take necessary steps to justify the trust offered to it. In accordance with the Law on personal data protection No. 133 of 08.07.2011, the personal data is any information relating to an identified or identifiable individual (Personal Data Subject). An identifiable person is the one who may be identified, directly or indirectly, in particular by reference to an identification number or to one or more factors specific to his/hers physical, physiological, mental, economic, cultural or social identity. Any personal data processing, except those specified directly in the Law on personal data protection No. 133 of 08.07.2011, may be performed only if an individual concerned has expressed his/hers explicit consent to the specified data processing. In accordance with the provisions of the Law on personal data protection No. 133 of 08.07.2011, the Company shall collect personal data in specific, clear and legitimate goals, in accordance with the specified purposes of processing. The Company shall collect data related to the provision of air transport services, as well as for other purposes related to the achievement of the main objectives of its activity. Customers’ personal data shall be processed only to the extent necessary to execute internal and legitimate purposes of the Company, subject to all legitimate measures to ensure the data security and confidentiality. The Company shall extract personal data from the identity documents of the customers and from the video surveillance systems. In accordance with the provisions of art. 12-18 of the Law on personal data protection No. 133 of 08.07.2011, you may have the right to information, the right to access the personal data, the right to intervene the personal data, the right to demur the personal data subject, the right not to depend on the individual decisions, the right to get justice."
+    }
+  },
+  "services":{
+    "title": "Services",
+    "1":{
+      "title": "Airport comfort services",
+      "content":"Certain airports offer comfort services to make your journey more relaxed from the first step onwards. Take advantage of Security Fast Track option and /or enjoy the luxurious services of Exclusive Lounges! In case one or both of the comfort services are available at your departure airport, it is possible to purchase them during the flight booking or add them to an existing reservation."
+    },
+    "2":{
+      "title": "Flexible travel partner",
+      "content": "Our flexible travel partner service provides you the opportunity to create a new reservation without adding all passenger names at the time of booking. When creating the booking, it is sufficient to provide only one name and include more passengers without adding the names for an additional fee. You need to pay the full ticket price and the fees of all selected services for all the passengers at the time of your reservation. The name of all passengers shall be finalized latest by the time of online check-in. Please note that if you do not provide any names for the flexible travel partner(s), the reservation for those passengers will be canceled. Please note that the flexible travel partner fee and the ticket fare will not be refunded if you do not provide all passenger names at the time of check-in. When creating the booking, you simply select the number of passengers, flights, and all the required services, like in any other booking, but you need to add only one passenger name and leave the other passenger name(s) empty by ticking the box “I will add a name later”.All the fare and service charges (including the flexible travel partner fee)are payable when finalizing the reservation. Names of the flexible travel partner(s) can be added later by accessing your booking."
+    },
+    "3": {
+      "title": "Sitting Together",
+      "content": "Sitting together may be purchased on the Website during the reservation/booking of Your flight or can be added to an existing reservation/booking 4 hours before the scheduled time of the departure of Your flight. For the avoidance of doubt, the scheduled time of departure means the time communicated to you at the time of the reservation/booking or later, by Dream Trip due to schedule changes. Delays cannot be considered a schedule change. For the sake of clarity, the purchase of Sitting together must be completed (i.e. the payment must be completed) 4 hours before the scheduled time of the departure of Your flight."
+    }
+  },
+  "contacts":{
+    "title": "Contacts",
+    "1":{
+      "title": "Booking and purchase",
+      "content":"You can make new reservations or purchase additional services also via the Call Center. Please note that if you contact the Call Centre to make a transaction that is also available online (purchase a ticket, or any additional service, or make a change to your booking), an additional Call Centre Transaction Fee will apply per call. This Call Center Transaction Fee is not refundable. In certain countries, you can reach the Call Centre only through premium-rate numbers specific to the country you are calling from. Have your confirmation number, passenger details, route, and date of your flight at hand! Number: +37379797979"
+    },
+    "2":{
+      "title": "Complaints",
+      "content": "If you have any complaints, please submit a complaints form! It might take 30 days to respond to your enquiry, therefore, in urgent cases, we recommend contacting the Call Centre. If you are not satisfied with the handling process or the outcome of your complaint you can submit your claim at Online Dispute Resolution (ODR) platform. Please indicate odr@dreamTrip.com e-mail address when filling trader details on ODR platform. Please note that this e-mail address is used only for complaints submitted on above mentioned ODR platform, other complaints or e-mails received will not be handled. Or, alternatively, you can refer your complaint to AviationADR. You will need to refer your complaint to them within 12 months after our final response"
     }
   }
 }

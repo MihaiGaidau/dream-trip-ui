@@ -1,12 +1,20 @@
 import {Injectable} from '@angular/core';
-import {CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router} from '@angular/router';
+import {
+  CanActivate,
+  ActivatedRouteSnapshot,
+  RouterStateSnapshot,
+  UrlTree,
+  Router,
+  CanActivateChild
+} from '@angular/router';
 import {Observable} from 'rxjs';
 import {AuthService} from '../services/auth.service';
+import {map, tap} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard implements CanActivate {
+export class AuthGuard implements CanActivateChild {
 
   protected role: string;
 
@@ -15,18 +23,17 @@ export class AuthGuard implements CanActivate {
     this.role = '';
   }
 
-  canActivate(
+  canActivateChild(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    const currentUser = this.authService.currentUser;
-    if (currentUser) {
-      currentUser.authorities.forEach((authority) => this.role = authority.authority);
-    }
-    if (currentUser && this.role === 'ROLE_ADMIN') {
-      return true;
-    }
-    this.router.navigate(['/home']);
-    return false;
-  }
+    return this.authService.currentUser$.pipe(map(user => {
+      if (user.token) {
+        return true;
+      } else {
+        this.router.navigate(['/home']);
+        return false;
+      }
+    }));
 
+  }
 }

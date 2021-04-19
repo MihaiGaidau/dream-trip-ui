@@ -9,21 +9,21 @@
     <div class="form-group">
       <label for="name">Name</label>
       <input type="name" formControlName="name" class="form-control" id="name" aria-describedby="Name"
-             placeholder="Enter name" [value]="updatedObject?.name" [readOnly]="isDisabled">
+             placeholder="Enter name" readonly>
     </div>
     <div class="form-group">
       <label for="city">City</label>
       <input type="city" formControlName="city" class="form-control" id="city" placeholder="Enter city"
-             [value]="updatedObject?.city" [readOnly]="isDisabled">
+             readonly>
     </div>
 
     <div class="form-group">
       <label for="code">Code</label>
       <input type="code" formControlName="code" class="form-control" id="code" placeholder="Enter code"
-             [value]="updatedObject?.code" [readOnly]="isDisabled">
+             readonly>
     </div>
 
-<!--    <button type="submit" class="btn btn-info" (click)="onUpdate()">Update</button>-->
-<!--    <button type="submit" class="btn btn-info" style="margin-left: 270px" (click)="onSubmit()">Submit</button>-->
+    <!--    <button type="submit" class="btn btn-info" (click)="onUpdate()">Update</button>-->
+    <!--    <button type="submit" class="btn btn-info" style="margin-left: 270px" (click)="onSubmit()">Submit</button>-->
   </form>
 </div>

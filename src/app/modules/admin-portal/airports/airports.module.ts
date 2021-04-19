@@ -16,12 +16,9 @@ const routes: Routes = [
     component: AirportsComponent,
     children: [
       {
-        path: ':id/edit',
-        component: AirportCreateComponent
-      },
-      {
-        path: ':id/view',
-        component: AirportViewComponent
+        path: '',
+        redirectTo: 'overview',
+        pathMatch: 'full'
       },
       {
         path: 'overview',
@@ -30,6 +27,14 @@ const routes: Routes = [
       {
         path: 'create',
         component: AirportCreateComponent
+      },
+      {
+        path: ':id/edit',
+        component: AirportCreateComponent
+      },
+      {
+        path: ':id/view',
+        component: AirportViewComponent
       }
     ]
   }

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Observable} from 'rxjs';
-import {Flight} from '../../../../core/models/flight.model';
+import {Flight, FlightData} from '../../../../core/models/flight.model';
 import {FlightService} from '../../../../core/services/flight.service';
 import {ToastService} from '../../../../core/services/toast.service';
 
@@ -11,7 +11,7 @@ import {ToastService} from '../../../../core/services/toast.service';
   styleUrls: ['./flight-table.component.scss']
 })
 export class FlightTableComponent implements OnInit {
-  public flights$: Observable<Flight[]>;
+  public flights: FlightData[];
 
   constructor(private readonly router: Router,
               private readonly  route: ActivatedRoute,
@@ -24,7 +24,9 @@ export class FlightTableComponent implements OnInit {
   }
 
   getData(): void {
-    this.flights$ = this.flightService.getAllFlights();
+    this.flightService.getAllFlights({}).subscribe(flights => {
+      this.flights = flights.content;
+    });
 
   }
 

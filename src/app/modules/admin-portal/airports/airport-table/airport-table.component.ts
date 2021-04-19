@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {Airport} from '../../../../core/models/airport.model';
+import {Airport, AirportData} from '../../../../core/models/airport.model';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AirportService} from '../../../../core/services/airport.service';
-import {Observable} from 'rxjs';
 import {ToastService} from '../../../../core/services/toast.service';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-airport-table',
@@ -12,7 +12,8 @@ import {ToastService} from '../../../../core/services/toast.service';
 })
 export class AirportTableComponent implements OnInit {
 
-  public airports$: Observable<Airport[]>;
+  // public airports: AirportData[];
+  public airports$: Observable<Airport>;
 
   constructor(public readonly router: Router,
               public readonly route: ActivatedRoute,

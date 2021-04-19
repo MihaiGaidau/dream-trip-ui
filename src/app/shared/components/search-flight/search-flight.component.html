@@ -6,16 +6,16 @@
       <div class="col form-group">
         <label>{{'flight-search.from' | translate}} </label>
         <div class="input-group input">
-          <input class="form-control rounded" formControlName="fromDestination" type="text"
-            placeholder="{{'flight-search.placeholder.from' | translate}}">
+          <input class="form-control rounded" formControlName="departureCity" type="text"
+                 placeholder="{{'flight-search.placeholder.from' | translate}}">
         </div>
       </div>
 
       <div class="col form-group">
         <label>{{'flight-search.to' | translate}} </label>
         <div class="input-group input">
-          <input class="form-control rounded" formControlName="toDestination" type="text"
-            placeholder="{{'flight-search.placeholder.to' | translate}}">
+          <input class="form-control rounded" formControlName="arrivalCity" type="text"
+                 placeholder="{{'flight-search.placeholder.to' | translate}}">
         </div>
       </div>
 
@@ -23,7 +23,7 @@
         <div class="col form-group">
           <label>{{'flight-search.departure-date' | translate}} </label>
           <div class="input-group date-input">
-            <p-calendar class="w-100" inputId="basic" showIcon=true dateFormat="dd-mm-yy" formControlName="fromDate">
+            <p-calendar class="w-100" inputId="basic" showIcon=true dateFormat="dd-mm-yy" formControlName="departureDate">
             </p-calendar>
 
           </div>
@@ -32,7 +32,7 @@
         <div class="col form-group" *ngIf="!oneWayValue">
           <label class="ml-2">{{'flight-search.return-date' | translate}} </label>
           <div class="input-group ml-2 date-input">
-            <p-calendar inputId="basic" showIcon=true dateFormat="dd-mm-yy" formControlName="toDate">
+            <p-calendar inputId="basic" showIcon=true dateFormat="dd-mm-yy" formControlName="arrivalDate">
             </p-calendar>
 
 
@@ -41,10 +41,10 @@
       </div>
 
       <div class="col form-group">
-        <label>{{'flight-search.passengers' | translate}} </label>
+        <label>{{'flight-search.ticketPrice' | translate}} </label>
         <div class="input-group input">
-          <input class="form-control rounded" formControlName="passengers" type="text"
-            placeholder="{{'flight-search.placeholder.passenger' | translate}}">
+          <input class="form-control rounded" formControlName="ticketPrice" type="text"
+            placeholder="{{'flight-search.placeholder.ticketPrice' | translate}}">
         </div>
       </div>
 
@@ -52,7 +52,7 @@
       <div class="col form-group">
         <div class="input-group">
           <input class="radio" type="radio" name="radio" [checked]="oneWayValue"
-            (change)="onGetOneWayValue($event.target.checked)">
+                 (change)="onGetOneWayValue($event.target.checked)">
           <span class="ml-3"> {{'flight-search.one-way' | translate}}</span>
         </div>
       </div>
@@ -60,7 +60,7 @@
       <div class="col form-group">
         <div class="input-group">
           <input class="radio" type="radio" name="radio" [checked]="!oneWayValue"
-            (change)="onGetOneWayValue(!$event.target.checked)">
+                 (change)="onGetOneWayValue(!$event.target.checked)">
           <span class="ml-3"> {{'flight-search.round-trip' | translate}}</span>
         </div>
       </div>

@@ -1,8 +1,8 @@
 export interface Departure {
-  fromDate: Date;
-  fromDestination: string;
+  departureDate: Date;
+  departureCity: string;
   oneWay: boolean;
-  passengers: number;
-  toDate: Date;
-  toDestination: string;
+  ticketPrice: number;
+  arrivalDate: Date;
+  arrivalCity: string;
 }

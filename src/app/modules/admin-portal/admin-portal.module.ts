@@ -16,7 +16,7 @@ const routes: Routes = [
   {
     path: '',
     component: AdminPortalComponent,
-    canActivate: [AuthGuard],
+    canActivateChild: [AuthGuard],
     children: [
       {
         path: 'airports',

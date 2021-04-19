@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../../../core/services/auth.service';
 import {first} from 'rxjs/operators';
 import {ActivatedRoute, Router} from '@angular/router';
+import {ToastService} from '../../../core/services/toast.service';
 
 @Component({
   selector: 'app-log-in-modal',
@@ -21,13 +22,19 @@ export class LogInModalComponent {
   constructor(private formBuilder: FormBuilder,
               private authService: AuthService,
               private readonly router: Router,
-              private readonly route: ActivatedRoute) {
+              private readonly route: ActivatedRoute,
+              private readonly toastService: ToastService) {
     this.error = '';
   }
 
   public onLogin(): void {
     console.log(this.formLogin.value);
-    this.authService.login(this.formLogin.value).pipe(first()).subscribe(data => {
+    this.authService.login(this.formLogin.value).subscribe(data => {
+      this.toastService.add({
+        type: 'success',
+        title: 'You logged in as admin successfully',
+        message: 'Welcome back !'
+      });
       this.formLogin.reset();
       this.error = '';
       this.router.navigate(['admin-portal/airports']);

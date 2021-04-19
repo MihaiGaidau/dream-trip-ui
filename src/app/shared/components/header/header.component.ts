@@ -1,13 +1,12 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
 import {NavModel} from '../../../core/models/navModel';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {UtilityService} from '../../../core/services/utility.service';
 import {UserModel} from '../../../core/models/user.model';
 import {AuthService} from '../../../core/services/auth.service';
 import {Subscription} from 'rxjs';
-import {FormControl} from '@angular/forms';
-import {debounce, debounceTime} from "rxjs/operators";
+import {ToastService} from '../../../core/services/toast.service';
 
 
 @Component({
@@ -31,7 +30,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
   constructor(public translateService: TranslateService,
               public router: Router,
               private utilityService: UtilityService,
-              private authService: AuthService) {
+              private authService: AuthService,
+              private readonly toastService: ToastService,
+              private readonly route: ActivatedRoute) {
     this.authService.currentUser$.subscribe((response: UserModel) => {
       this.currentUser = response;
       this.isAuthenticated = !!this.currentUser;
@@ -88,16 +89,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
 
   public onOpenLogInModal() {
-    // const scrollStrategy = this.overlay.scrollStrategies.reposition();
     this.displayLoginModal = !this.displayLoginModal;
     this.router.navigate(['auth']);
-    // this.dialog.open(LogInModalComponent, {
-    //   autoFocus: false, disableClose: true,
-    //   data: this.user,
-    //   width: '350px',
-    //   height: '350px'
-    // });
-    // document.body.style.overflowY = 'hidden';
   }
 
   closeModal(isLoggin: boolean): void {
@@ -107,7 +100,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   onLogout(): void {
     this.authService.logout();
-    this.router.navigate(['home']);
+    this.router.navigate(['']);
+
   }
 
   onSearchAviaDestination(): void {
@@ -115,5 +109,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
     console.log(this.search);
     this.router.navigate(['search'], {state: {data: this.search}});
     this.search = '';
+  }
+
+  onOpenAdminDashboard() {
+    this.router.navigate(['../../admin-portal/airports/overview'], {relativeTo: this.route});
   }
 }

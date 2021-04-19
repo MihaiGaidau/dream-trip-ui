@@ -13,7 +13,7 @@ export class AirportsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.router.navigate(['overview'], {relativeTo: this.route});
+    // this.router.navigate(['overview'], {relativeTo: this.route});
   }
 
 }

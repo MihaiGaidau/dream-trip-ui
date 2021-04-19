@@ -1,36 +1,80 @@
 <div class="fc-view-container">
-  <div class="fc-row" style="padding-top: 30px">
-    <button class="btn btn-primary"> Create</button>
+  <div class="fc-container" style="display: flex; margin-top: 20px">
+    <div class="fc-row">
+      <h1 style="margin-left: 20px"> Departure city weather: {{departureCityName}}</h1>
+      <div id="divWeatherMain" style="margin-top: 50px; margin-left: 20px">
+        <!--    <div *ngIf="periodOfDay.isDay" class="weatherWidgetRow">-->
+        <!--      <i class="fas fa-3x fa-sun sun"></i>-->
+        <!--    </div>-->
+        <!--    <div *ngIf="!periodOfDay.isDay" class="weatherWidgetRow">-->
+        <!--      <i class="fas fa-3x fa-moon moon"></i>-->
+        <!--    </div>-->
+        <div class="weatherWidgetRow cloudDiv">
+          <i class="fas fa-cloud fa-3x cloud"></i>
+        </div>
+        <div class="weatherWidgetRow" style="font-size: 32px;margin-top: 50px;">{{departureObjectWeather?.temp}}°</div>
+        <div class="weatherWidgetRow" style="font-size: 12px;">{{departureObjectWeather?.temp_min}}°
+          / {{departureObjectWeather?.temp_max}}°
+        </div>
+        <div class="weatherWidgetRow" style="font-size: 12px;">Feels Like: {{departureObjectWeather?.feels_like}}°</div>
+        <div class="weatherWidgetRow" style="font-size: 25px;margin-top: 10px;">{{departureCityName}}</div>
+        <div class="weatherWidgetRow" style="font-size: 12px;">Humidity: {{departureObjectWeather?.humidity}}%</div>
+      </div>
+    </div>
+
+    <div class="fc-row" style="margin-left: 50px">
+      <h1> Arrival city weather: {{arrivalCityName}}</h1>
+      <div id="divWeatherMain" style="margin-top: 50px">
+        <!--    <div *ngIf="periodOfDay.isDay" class="weatherWidgetRow">-->
+        <!--      <i class="fas fa-3x fa-sun sun"></i>-->
+        <!--    </div>-->
+        <!--    <div *ngIf="!periodOfDay.isDay" class="weatherWidgetRow">-->
+        <!--      <i class="fas fa-3x fa-moon moon"></i>-->
+        <!--    </div>-->
+        <div class="weatherWidgetRow cloudDiv">
+          <i class="fas fa-cloud fa-3x cloud"></i>
+        </div>
+        <div class="weatherWidgetRow" style="font-size: 32px;margin-top: 50px;">{{arrivalObjectWeather?.temp}}°</div>
+        <div class="weatherWidgetRow" style="font-size: 12px;">{{arrivalObjectWeather?.temp_min}}°
+          / {{arrivalObjectWeather?.temp_max}}°
+        </div>
+        <div class="weatherWidgetRow" style="font-size: 12px;">Feels Like: {{arrivalObjectWeather?.feels_like}}°</div>
+        <div class="weatherWidgetRow" style="font-size: 25px;margin-top: 10px;">{{arrivalCityName}}</div>
+        <div class="weatherWidgetRow" style="font-size: 12px;">Humidity: {{arrivalObjectWeather?.humidity}}%</div>
+      </div>
+    </div>
   </div>
+</div>
+<div class="fc-view-container">
   <div class="fc-row" style="padding-top: 30px">
     <table class="table center">
-      <thead>
+      <thead class="bold">
       <tr>
         <th scope="col">#</th>
         <th scope="col">Number</th>
+        <th scope="col">Departure city</th>
+        <th scope="col">Arrival city</th>
         <th scope="col">Departure date</th>
         <th scope="col">Arrival date</th>
+        <th scope="col">Ticket price</th>
+        <th scope="col">Available tickets</th>
         <th scope="col"></th>
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let flight of (flights$ | async)">
-        <th scope="row"></th>
-        <td>...</td>
-        <td>...</td>
-        <td>...</td>
+      <tr *ngFor="let flight of (flights$ | async)?.content">
+        <th scope="row">{{flight.id}}</th>
+        <td>{{flight.number}}</td>
+        <td>{{flight.departureAirport?.city}}</td>
+        <td>{{flight.arrivalAirport?.city}}</td>
+        <td>{{flight.departureDate}}</td>
+        <td>{{flight.arrivalDate}}</td>
+        <td>{{flight.ticketPrice}}</td>
+        <td>{{flight.availableTickets}}</td>
         <td class="crud">
           <div class="icons row justify-content-center no-gutters">
             <div class="read">
-              <i class="fas fa-book-open"></i>
-            </div>
-
-            <div class="modify">
-              <i class="fas fa-edit"></i>
-            </div>
-
-            <div class="delete">
-              <i class="fas fa-trash-alt"></i>
+              <i class="fas fa-credit-card"></i>
             </div>
           </div>
         </td>

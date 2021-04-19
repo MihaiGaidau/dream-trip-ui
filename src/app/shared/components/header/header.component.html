@@ -49,9 +49,22 @@
             </ng-container>
           </div>
         </li>
-        <li (click)="onOpenLogInModal()" *ngIf="!isLoggedIn"><i class="fas fa-sign-in-alt"></i></li>
-        <li (click)="onLogout()" *ngIf="isLoggedIn"><i class="fas fa-sign-out-alt"></i></li>
-        <p style="padding-top: 10px" *ngIf="isAuthenticated">{{currentUser.username}}</p>
+        <li class="nav-item dropdown no-underline">
+          <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown2" role="button"
+             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            admin
+          </a>
+
+          <div class="dropdown-menu  p-0" aria-labelledby="navbarDropdown">
+            <ng-container>
+              <!--                 [routerLink]="generateTranslateRouteLink(lang)"-->
+              <!--              [queryParamsHandling]="'preserve'"-->
+              <a class="dropdown-item text-center" (click)="onOpenLogInModal()" *ngIf="!isAuthenticated"> log in</a>
+              <a class="dropdown-item text-center" (click)="onLogout()" *ngIf="isAuthenticated"> log out</a>
+              <a class="dropdown-item text-center" (click)="onOpenAdminDashboard()" *ngIf="isAuthenticated"> dashboard</a>
+            </ng-container>
+          </div>
+        </li>
 
         <app-log-in-modal
           *ngIf="displayLoginModal"

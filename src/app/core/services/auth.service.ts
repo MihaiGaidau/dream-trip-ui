@@ -3,7 +3,8 @@ import {HttpClient} from '@angular/common/http';
 import {UserModel} from '../models/user.model';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {environment} from '../../../environments/environment';
-import {map} from 'rxjs/operators';
+import {map, tap} from 'rxjs/operators';
+import {ToastService} from './toast.service';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,8 @@ export class AuthService {
   isLoggedIn = new BehaviorSubject<boolean>(false);
   private tokenExpiratationTimer: any;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,
+              private readonly toastService: ToastService) {
     this.currentUserSubject = new BehaviorSubject<UserModel>(JSON.parse(localStorage.getItem('currentUser')));
     this.currentUser$ = this.currentUserSubject.asObservable();
     this.userId = new BehaviorSubject<any>(JSON.parse(localStorage.getItem('userId')));
@@ -37,11 +39,11 @@ export class AuthService {
   /** login    */
   public login(body): Observable<UserModel> {
     return this.http.post<UserModel>(`${this.apiUrl}${this.endpointUrl}auth/sign-in`, body)
-      .pipe(map(user => {
+      .pipe(tap(user => {
         localStorage.setItem('currentUser', JSON.stringify(user));
         localStorage.setItem('jwt_token', JSON.stringify(user.token));
         this.currentUserSubject.next(user);
-        this.isLoggedIn.next(true);
+        // this.isLoggedIn.next(true);
         this.autoLogout(1000 * 600);
         // this.getUserByUsername();
         return user;
@@ -57,6 +59,11 @@ export class AuthService {
     if (this.tokenExpiratationTimer) {
       clearTimeout(this.tokenExpiratationTimer);
     }
+    this.toastService.add({
+      type: 'success',
+      title: 'You logged out from admin successfully',
+      message: 'Good luck !'
+    });
     this.tokenExpiratationTimer = null;
   }
 

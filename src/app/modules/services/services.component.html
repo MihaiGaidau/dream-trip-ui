@@ -1,1 +1,24 @@
-<p>services works!</p>
+<div class="container serv">
+  <h3>{{'header.nav.service' | translate}}</h3>
+  <div class="widget-accordion py-3">
+    <div id="accordion" class="accordion">
+      <ng-container *ngFor="let service of services;let i = index">
+        <div class="card">
+          <div class="card-header">
+            <a class="card-link collapsed" data-toggle="collapse" href="{{'#collapse'+i}}"
+               aria-expanded="false">
+              <h5>{{'services.' + (i + 1) + '.title' | translate}}</h5>
+            </a>
+          </div>
+          <div id="{{'collapse'+i}}" class="collapse" data-parent="#accordion">
+            <div class="card-body">
+              <ng-container *ngFor="let paragraph of paragraphs[i]; let j = index">
+                <p> {{'services.' + (i + 1) + '.content' | translate}}</p>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>

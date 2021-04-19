@@ -4,7 +4,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {AirportService} from '../../../../core/services/airport.service';
 import {ToastService} from '../../../../core/services/toast.service';
 import {Location} from '@angular/common';
-import {Airport} from '../../../../core/models/airport.model';
+import {Airport, AirportData} from '../../../../core/models/airport.model';
 
 @Component({
   selector: 'app-airport-create',
@@ -19,8 +19,9 @@ export class AirportCreateComponent implements OnInit {
     city: new FormControl(),
     code: new FormControl()
   });
-  public airport: Airport;
+  public airport: AirportData[];
   public airportId: number;
+  public airportData: AirportData;
 
   constructor(private readonly router: Router,
               private readonly  route: ActivatedRoute,
@@ -35,7 +36,7 @@ export class AirportCreateComponent implements OnInit {
       this.airportId = params.id;
       if (this.airportId) {
         this.airportService.getAirportById(this.airportId).subscribe((response) => {
-          this.airport = response;
+          this.airportData = response;
           this.onEditForm();
         });
       }
@@ -47,28 +48,29 @@ export class AirportCreateComponent implements OnInit {
 
   }
 
+
   public onEditForm(): void {
     this.form = this.formBuilder.group({
-      name: [this.airport.name, Validators.required],
-      city: [this.airport.city, Validators.required],
-      code: [this.airport.code, Validators.required]
+      name: [this.airportData.name],
+      city: [this.airportData.city],
+      code: [this.airportData.code]
     });
   }
 
   public createForm(): void {
     this.form = this.formBuilder.group({
-      name: [null, Validators.required],
-      city: [null, Validators.required],
-      code: [null, Validators.required]
+      name: [null],
+      city: [null],
+      code: [null]
     });
   }
 
   public onSubmit(): void {
     if (this.airportId) {
-      this.airportService.updateAirport(this.airport.id, this.form.value).subscribe((airport) => {
-        this.form.get('name').setValue(airport.name);
-        this.form.get('city').setValue(airport.city);
-        this.form.get('code').setValue(airport.code);
+      this.airportService.updateAirport(this.airportData.id, this.form.value).subscribe((airport) => {
+        this.router.navigate(['../../overview'], {relativeTo: this.route});
+      }, error => {
+        this.router.navigate(['../../overview'], {relativeTo: this.route});
       });
     } else {
       this.airportService.createAirport(this.form.value).subscribe(airport => {
@@ -77,7 +79,7 @@ export class AirportCreateComponent implements OnInit {
             this.toastService.add({
               type: 'success',
               title: 'Created successfully',
-              message: `airport with id ${airport.id}`
+              message: `airport was added`
             });
             this.form.reset();
           }, 200);

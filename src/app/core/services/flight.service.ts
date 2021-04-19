@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {environment} from '../../../environments/environment';
 import {HttpClient} from '@angular/common/http';
 import {LoaderService} from './loader.service';
-import {Flight} from '../models/flight.model';
+import {Flight, FlightData} from '../models/flight.model';
 import {Observable} from 'rxjs';
 
 @Injectable({
@@ -21,16 +21,16 @@ export class FlightService {
 
   }
 
-  public getFlightById(flightId): Observable<Flight> {
-    return this.loaderService.showLoaderUntilCompleted(this.http.get<Flight>(this.apiUrl + this.endpointUrl + `flights/${flightId}`));
+  public getFlightById(flightId): Observable<FlightData> {
+    return this.loaderService.showLoaderUntilCompleted(this.http.get<FlightData>(this.apiUrl + this.endpointUrl + `flights/${flightId}`));
   }
 
-  public getAllFlights(): Observable<Flight[]> {
-    return this.loaderService.showLoaderUntilCompleted(this.http.get<Flight[]>(this.apiUrl + this.endpointUrl + 'flights'));
+  public getAllFlights(body: any): Observable<Flight> {
+    return this.loaderService.showLoaderUntilCompleted(this.http.post<Flight>(this.apiUrl + this.endpointUrl + 'flights/search', body));
   }
 
-  public updateFlight(id: number, flight: Flight): Observable<Flight> {
-    return this.loaderService.showLoaderUntilCompleted(this.http.put<Flight>(`${this.apiUrl}${this.endpointUrl}flights/${id}`, flight));
+  public updateFlight(id: number, flight: FlightData): Observable<FlightData> {
+    return this.loaderService.showLoaderUntilCompleted(this.http.patch<FlightData>(`${this.apiUrl}${this.endpointUrl}flights/${id}`, flight));
   }
 
   public deleteFlight(flightId: number): Observable<void> {

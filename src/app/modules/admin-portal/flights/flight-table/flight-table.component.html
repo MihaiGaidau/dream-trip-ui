@@ -8,17 +8,25 @@
       <tr>
         <th scope="col">#</th>
         <th scope="col">Number</th>
+        <th scope="col">Departure city</th>
+        <th scope="col">Arrival city</th>
         <th scope="col">Arrival date</th>
         <th scope="col">Departure date</th>
+        <th scope="col">Ticket price</th>
+        <th scope="col">Available tickets</th>
         <th scope="col"></th>
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let flight of (flights$ | async); let i=index;">
+      <tr *ngFor="let flight of flights; let i=index;">
         <th scope="row">{{flight.id}}</th>
         <td>{{flight.number}}</td>
+        <td>{{flight.departureAirport?.city}}</td>
+        <td>{{flight.arrivalAirport?.city}}</td>
         <td>{{flight.arrivalDate}}</td>
         <td>{{flight.departureDate}}</td>
+        <td>{{flight.ticketPrice}}</td>
+        <td>{{flight.availableTickets}}</td>
         <td class="crud">
           <div class="icons row justify-content-center no-gutters">
             <div class="read">

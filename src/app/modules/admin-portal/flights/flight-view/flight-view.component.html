@@ -9,23 +9,56 @@
     <div class="form-group">
       <label for="number">Number</label>
       <input type="number" formControlName="number" class="form-control" id="number" aria-describedby="Enter number"
-             placeholder="Enter name" [value]="updatedObject?.number" [readOnly]="isDisabled">
+             placeholder="Enter name" readonly>
     </div>
     <div class="form-group">
       <label for="arrivalDate">Arrival date</label>
       <input type="city" formControlName="arrivalDate" class="form-control" id="arrivalDate"
-             placeholder="Enter arrivalDate"
-             [value]="updatedObject?.arrivalDate" [readOnly]="isDisabled">
+             placeholder="Enter arrivalDate" readonly>
     </div>
 
     <div class="form-group">
       <label for="departureDate">Departure date</label>
       <input type="code" formControlName="departureDate" class="form-control" id="departureDate"
-             placeholder="Enter departureDate"
-             [value]="updatedObject?.departureDate" [readOnly]="isDisabled">
+             placeholder="Enter departureDate" readonly>
+    </div>
+    <div class="fc-row" formGroupName="arrivalAirport">
+      <div class="form-group">
+        <label for="city">Arrival city</label>
+        <input type="code" formControlName="city" class="form-control"
+               placeholder="Enter departureDate" readonly>
+      </div>
+      <div class="form-group">
+        <label for="name">Arrival airport name</label>
+        <input type="code" formControlName="name" class="form-control"
+               placeholder="Enter departureDate" readonly>
+      </div>
+    </div>
+    <div formGroupName="departureAirport">
+      <div class="form-group">
+        <label for="city">Departure city</label>
+        <input type="code" formControlName="city" class="form-control" id="city"
+               placeholder="Enter departureDate" readonly>
+      </div>
+      <div class="form-group">
+        <label for="name">Departure airport name</label>
+        <input type="code" formControlName="name" class="form-control" id="name"
+               placeholder="Enter departureDate" readonly>
+      </div>
     </div>
 
-    <!--    <button type="submit" class="btn btn-info" (click)="onUpdate()">Update</button>-->
-    <!--    <button type="submit" class="btn btn-info" style="margin-left: 270px" (click)="onSubmit()">Submit</button>-->
+
+    <div class="form-group">
+      <label for="departureDate">Available tickets</label>
+      <input type="code" formControlName="availableTickets" class="form-control" id="availableTickets"
+             placeholder="Enter departureDate" readonly>
+    </div>
+
+    <div class="form-group">
+      <label for="departureDate">Ticket price</label>
+      <input type="code" formControlName="ticketPrice" class="form-control" id="ticketPrice"
+             placeholder="Enter departureDate" readonly>
+    </div>
+
   </form>
 </div>

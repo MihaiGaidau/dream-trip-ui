@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
 import {Observable} from 'rxjs';
-import {Airport} from '../models/airport.model';
+import {Airport, AirportData} from '../models/airport.model';
 import {LoaderService} from './loader.service';
 
 @Injectable({
@@ -21,16 +21,16 @@ export class AirportService {
 
   }
 
-  public getAirportById(airportId): Observable<Airport> {
-    return this.loaderService.showLoaderUntilCompleted(this.http.get<Airport>(this.apiUrl + this.endpointUrl + `airports/${airportId}`));
+  public getAirportById(airportId): Observable<AirportData> {
+    return this.loaderService.showLoaderUntilCompleted(this.http.get<AirportData>(this.apiUrl + this.endpointUrl + `airports/${airportId}`));
   }
 
-  public getAllAirports(): Observable<Airport[]> {
-    return this.loaderService.showLoaderUntilCompleted(this.http.get<Airport[]>(this.apiUrl + this.endpointUrl + 'airports'));
+  public getAllAirports(): Observable<Airport> {
+    return this.loaderService.showLoaderUntilCompleted(this.http.get<Airport>(this.apiUrl + this.endpointUrl + 'airports'));
   }
 
   public updateAirport(id: number, airport: Airport): Observable<Airport> {
-    return this.loaderService.showLoaderUntilCompleted(this.http.put<Airport>(`${this.apiUrl}${this.endpointUrl}airports/${id}`, airport));
+    return this.loaderService.showLoaderUntilCompleted(this.http.patch<Airport>(`${this.apiUrl}${this.endpointUrl}airports/${id}`, airport));
   }
 
   public deleteAirport(airportId: number): Observable<void> {
