@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:8080/',
+  apiUrl: 'http://ats-env.eba-m4ef4ihf.us-west-2.elasticbeanstalk.com/',
   endpointUrl: 'v1/ats/',
   numberOfMonths: 6
 };
