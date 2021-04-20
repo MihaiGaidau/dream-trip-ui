@@ -3,21 +3,38 @@
   <p class="bold mt-0">{{'flight-search.flight-question-bold' | translate}}</p>
   <form [formGroup]="departureForm" (ngSubmit)="onSubmit()">
     <div class="row">
-      <div class="col form-group">
-        <label>{{'flight-search.from' | translate}} </label>
-        <div class="input-group input">
-          <input class="form-control rounded" formControlName="departureCity" type="text"
-                 placeholder="{{'flight-search.placeholder.from' | translate}}">
-        </div>
+<!--      <div class="col form-group">-->
+<!--        <label>{{'flight-search.from' | translate}} </label>-->
+<!--        <div class="input-group input">-->
+<!--          <input class="form-control rounded" formControlName="departureCity" type="text"-->
+<!--                 placeholder="{{'flight-search.placeholder.from' | translate}}">-->
+<!--        </div>-->
+<!--      </div>-->
+      <div class=" col form-group">
+        <label>{{'flight-search.from' | translate}}</label>
+        <br>
+        <select formControlName="departureCity" class="select"  style="width: 400px; height: 40px">
+          <option *ngFor="let city of keys">{{city}}</option>
+
+        </select>
       </div>
 
-      <div class="col form-group">
-        <label>{{'flight-search.to' | translate}} </label>
-        <div class="input-group input">
-          <input class="form-control rounded" formControlName="arrivalCity" type="text"
-                 placeholder="{{'flight-search.placeholder.to' | translate}}">
-        </div>
+      <div class=" col form-group">
+        <label>{{'flight-search.to' | translate}}</label>
+        <br>
+        <select formControlName="arrivalCity" class="select"  style="width: 400px; height: 40px">
+          <option *ngFor="let city of keys">{{city}}</option>
+
+        </select>
       </div>
+
+<!--      <div class="col form-group">-->
+<!--        <label>{{'flight-search.to' | translate}} </label>-->
+<!--        <div class="input-group input">-->
+<!--          <input class="form-control rounded" formControlName="arrivalCity" type="text"-->
+<!--                 placeholder="{{'flight-search.placeholder.to' | translate}}">-->
+<!--        </div>-->
+<!--      </div>-->
 
       <div class="row col ">
         <div class="col form-group">

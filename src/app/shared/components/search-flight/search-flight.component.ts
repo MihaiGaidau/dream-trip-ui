@@ -5,6 +5,7 @@ import {SearchFlightService} from '../../../core/services/search-flight.service'
 import {ActivatedRoute, Router} from '@angular/router';
 import {Observable} from 'rxjs';
 import {Weather} from '../../../core/models/weather.model';
+import {City} from "../../../core/enums/generic/city.enum";
 
 @Component({
   selector: 'app-search-flight',
@@ -19,6 +20,7 @@ export class SearchFlightComponent implements OnInit {
 
   @Output()
   public toDestinationCityWeather$: Observable<Weather>;
+  public keys: any;
 
   constructor(
     private readonly formBuilder: FormBuilder,
@@ -35,6 +37,7 @@ export class SearchFlightComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getValuesFromEnum();
   }
 
   private initDepartureForm(): void {
@@ -65,6 +68,11 @@ export class SearchFlightComponent implements OnInit {
     } as Departure;
     this.router.navigate(['search'], {state: {data: departure}});
 
+  }
+
+  public getValuesFromEnum(): void {
+    this.keys = Object.keys(City);
+    console.log(this.keys);
   }
 
 }
