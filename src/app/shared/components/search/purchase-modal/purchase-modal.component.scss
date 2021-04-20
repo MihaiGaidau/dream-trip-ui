@@ -1,0 +1,15 @@
+.card{
+  height: 350px;
+  width: 350px;
+  position: fixed;
+  top: 30vh;
+  left: 40vw;
+  padding: 16px;
+  z-index: 50;
+  background: rgba(0, 0, 0, 0.26);
+}
+
+.close-button {
+  float: right;
+  cursor: pointer;
+}

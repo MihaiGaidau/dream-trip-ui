@@ -1,10 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
 import {AirportService} from '../../../../core/services/airport.service';
 import {ToastService} from '../../../../core/services/toast.service';
 import {Location} from '@angular/common';
-import {Airport, AirportData} from '../../../../core/models/airport.model';
+import {AirportData} from '../../../../core/models/airport.model';
+import {City} from '../../../../core/enums/generic/city.enum';
 
 @Component({
   selector: 'app-airport-create',
@@ -22,6 +23,7 @@ export class AirportCreateComponent implements OnInit {
   public airport: AirportData[];
   public airportId: number;
   public airportData: AirportData;
+  public keys: any;
 
   constructor(private readonly router: Router,
               private readonly  route: ActivatedRoute,
@@ -45,9 +47,15 @@ export class AirportCreateComponent implements OnInit {
       this.createForm();
 
     }
+    this.getValuesFromEnum();
+
 
   }
 
+  public getValuesFromEnum(): void {
+    this.keys = Object.keys(City);
+    console.log(this.keys);
+  }
 
   public onEditForm(): void {
     this.form = this.formBuilder.group({

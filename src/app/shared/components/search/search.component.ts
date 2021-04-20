@@ -22,6 +22,7 @@ export class SearchComponent implements OnInit {
   public departureCityName: string;
   public arrivalCityName: string;
   public periodOfDay: PeriodofDay;
+  public displayPurchaseModal: boolean;
 
   constructor(private readonly flightService: FlightService,
               private readonly router: Router,
@@ -87,6 +88,15 @@ export class SearchComponent implements OnInit {
       this.periodOfDay.isDay = (currentDate.getTime() < sunsetTime.getTime());
 
     }
+  }
+
+  public onOpenPurchaseModal() {
+    this.displayPurchaseModal = !this.displayPurchaseModal;
+  }
+
+  public onClosePurchaseModal(isLoggin: boolean): void {
+    console.log(isLoggin);
+    this.displayPurchaseModal = isLoggin;
   }
 
 

@@ -74,7 +74,7 @@
         <td class="crud">
           <div class="icons row justify-content-center no-gutters">
             <div class="read">
-              <i class="fas fa-credit-card"></i>
+              <i class="fas fa-credit-card" (click)="onOpenPurchaseModal()"></i>
             </div>
           </div>
         </td>
@@ -82,5 +82,10 @@
       </tbody>
     </table>
   </div>
+
+  <app-purchase-modal
+    *ngIf="displayPurchaseModal"
+    (closeModal)="onClosePurchaseModal($event)">
+  </app-purchase-modal>
 </div>
 

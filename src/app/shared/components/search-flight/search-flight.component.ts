@@ -63,7 +63,7 @@ export class SearchFlightComponent implements OnInit {
       arrivalDate: this.departureForm.value.arrivalDate,
       arrivalCity: this.departureForm.value.arrivalCity,
     } as Departure;
-    this.router.navigate(['search'], {relativeTo: this.route, state: {data: departure}});
+    this.router.navigate(['search'], {state: {data: departure}});
 
   }
 

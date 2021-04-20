@@ -11,8 +11,7 @@
       <label>Arrival airport</label>
       <br>
       <select formControlName="arrivalAirportId" class="select">
-        <option *ngFor="let airport of airports" [value]="airport.id"
-                [selected]="flight ? flight.arrivalAirport.name : null">{{airport.name}}</option>
+        <option *ngFor="let arrivalAirport of airports" [value]="arrivalAirport.id">{{arrivalAirport.name}}</option>
 
       </select>
     </div>
@@ -21,8 +20,8 @@
       <label>Departure airport</label>
       <br>
       <select formControlName="departureAirportId" class="select">
-        <option *ngFor="let airport of airports" [value]="airport.id"
-                [selected]="flight ? flight.departureAirport.name : null">{{airport.name}}</option>
+        <option *ngFor="let departureAirport of airports"
+                [value]="departureAirport.id">{{departureAirport.name}}</option>
 
       </select>
     </div>
@@ -49,7 +48,7 @@
 
     <div class="form-group">
       <label for="number">Number</label>
-      <input type="number" formControlName="number" class="form-control" id="number" placeholder="Enter number">
+      <input  formControlName="number" class="form-control" id="number" placeholder="Enter number">
     </div>
 
     <div class="form-group">

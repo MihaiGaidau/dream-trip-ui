@@ -20,8 +20,8 @@ export class FlightCreateComponent implements OnInit {
   public form: FormGroup = new FormGroup({
     arrivalDate: new FormControl(),
     departureDate: new FormControl(),
-    arrivalDestination: new FormControl(),
-    departureDestination: new FormControl(),
+    // arrivalDestination: new FormControl(),
+    // departureDestination: new FormControl(),
     availableTickets: new FormControl(),
     ticketPrice: new FormControl(),
     number: new FormControl(),
@@ -34,6 +34,8 @@ export class FlightCreateComponent implements OnInit {
   public airports$: Observable<Airport[]>;
   public airports: AirportData[];
   public obtainedFlight: { id?: any; departureDate: Date; number: string; ticketPrice: number; arrivalDate: Date; availableTickets: number; createDate: Date; arrivalAirportId: number; departureAirportId: number; arrivalAirport: { city: string; code: string; name: string }; departureAirport: { city: string; code: string; name: string } };
+  public departAiportId: number;
+  public arrivAiportId: number;
 
   constructor(private readonly router: Router,
               private readonly  route: ActivatedRoute,
@@ -47,7 +49,6 @@ export class FlightCreateComponent implements OnInit {
   ngOnInit(): void {
     this.airportService.getAllAirports().subscribe((data) => {
       this.airports = data.content;
-      console.log(this.airports);
     });
     this.route.params.subscribe((params) => {
       this.flightId = params.id;
@@ -66,17 +67,16 @@ export class FlightCreateComponent implements OnInit {
   }
 
   public onEditForm(): void {
-    console.log(this.flight);
 
     this.form = this.formBuilder.group({
       number: [this.flight.number ? this.flight.number : null, Validators.required],
       arrivalDate: [new Date(this.flight.arrivalDate), Validators.required],
       departureDate: [new Date(this.flight.departureDate), Validators.required],
-      departureDestination: [this.flight.departureAirport, Validators.required],
+      // departureDestination: [this.flight.departureAirport, Validators.required],
       availableTickets: [this.flight.availableTickets, Validators.required],
       ticketPrice: [this.flight.ticketPrice, Validators.required],
-      arrivalAirportId: [null, Validators.required],
-      departureAirportId: [null, Validators.required]
+      arrivalAirportId: [this.airports.filter(it => it.name === this.flight.arrivalAirport.name)[0].id, Validators.required],
+      departureAirportId: [this.airports.filter(it => it.name === this.flight.departureAirport.name)[0].id, Validators.required]
     });
   }
 
@@ -87,8 +87,8 @@ export class FlightCreateComponent implements OnInit {
       arrivalAirportId: [null, Validators.required],
       departureAirportId: [null, Validators.required],
       departureDate: [null, Validators.required],
-      arrivalDestination: [null, Validators.required],
-      departureDestination: [null, Validators.required],
+      arrivalAirport: [null, Validators.required],
+      departureAirport: [null, Validators.required],
       availableTickets: [null, Validators.required],
       ticketPrice: [null, Validators.required]
 
@@ -99,20 +99,18 @@ export class FlightCreateComponent implements OnInit {
 
     this.form.value.arrivalAirportId = +this.form.value.arrivalAirportId;
     this.form.value.departureAirportId = +this.form.value.departureAirportId;
-    console.log(this.form.value);
     if (this.flightId) {
-      console.log(this.flight.id);
       console.log(this.form.value);
-      console.log(this.form.get('arrivalAirportId').value);
       this.flightService.updateFlight(this.flight.id, this.form.value).subscribe((flight) => {
-        this.form.get('number').setValue(flight.number);
-        this.form.get('arrivalDate').setValue(flight.arrivalDate);
-        this.form.get('departureDate').setValue(flight.departureDate);
-        // this.form.get('arrivalAirportId').setValue(flight.departureAirport);
-        // this.form.get('departureAirportId').setValue(flight.departureAirportId);
+        this.router.navigate(['../../overview'], {relativeTo: this.route});
+      }, error => {
+        this.router.navigate(['../../overview'], {relativeTo: this.route});
       });
     } else {
+      console.log(this.form.value);
       this.flightService.createFlight(this.form.value).subscribe(flight => {
+          this.arrivAiportId = this.form.value.arrivAiportId;
+          this.departAiportId = this.form.value.departureAirportId;
           this.router.navigate([`/admin-portal/flights/overview`]);
           setTimeout(() => {
             this.toastService.add({

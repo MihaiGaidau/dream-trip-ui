@@ -18,11 +18,13 @@ export interface FlightData {
   availableTickets: number;
   createDate: Date;
   arrivalAirport: {
+    id?: any;
     city: string;
     code: string;
     name: string;
   };
   departureAirport: {
+    id?: any;
     city: string;
     code: string;
     name: string;

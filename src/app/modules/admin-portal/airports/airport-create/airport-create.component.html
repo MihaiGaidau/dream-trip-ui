@@ -12,9 +12,17 @@
              placeholder="Enter name">
     </div>
     <div class="form-group">
-      <label for="city">City</label>
-      <input type="city" formControlName="city" class="form-control" id="city" placeholder="Enter city">
+      <label>City</label>
+      <br>
+      <select formControlName="city" class="select">
+        <option *ngFor="let city of keys">{{city}}</option>
+
+      </select>
     </div>
+    <!--    <div class="form-group">-->
+    <!--      <label for="city">City</label>-->
+    <!--      <input type="city" formControlName="city" class="form-control" id="city" placeholder="Enter city">-->
+    <!--    </div>-->
 
     <div class="form-group">
       <label for="code">Code</label>

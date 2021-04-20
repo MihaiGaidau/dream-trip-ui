@@ -19,10 +19,11 @@ import { ToastComponent } from './components/toast/toast.component';
 import { SearchComponent } from './components/search/search.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { PurchaseModalComponent } from './components/search/purchase-modal/purchase-modal.component';
 
 
 @NgModule({
-  declarations: [FooterComponent, HeaderComponent, TransformPipe, SearchFlightComponent, BasicCalendarComponent, SelectDateModalComponent, LogInModalComponent, AdminSidebarComponent, ToastComponent, SearchComponent, LoaderComponent],
+  declarations: [FooterComponent, HeaderComponent, TransformPipe, SearchFlightComponent, BasicCalendarComponent, SelectDateModalComponent, LogInModalComponent, AdminSidebarComponent, ToastComponent, SearchComponent, LoaderComponent, PurchaseModalComponent],
   imports: [
     CommonModule,
     RouterModule,
