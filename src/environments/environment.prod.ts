@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://dream4trip-api.herokuapp.com/',
+  apiUrl: 'https://ats-env.eba-m4ef4ihf.us-west-2.elasticbeanstalk.com/',
   endpointUrl: 'v1/ats/',
   numberOfMonths: 6
 };
