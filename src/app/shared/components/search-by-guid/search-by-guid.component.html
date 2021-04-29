@@ -1,0 +1,33 @@
+<div class="card">
+  <div><span class="close-button" (click)="onClose()">X</span></div>
+  <article class="card-body">
+    <h4 class="card-title mb-4 mt-1 font-weight-bold">Your ticket</h4>
+    <h2>{{ticket.identifier}}</h2>
+    <h3>Created at: {{ticket.createDate}}</h3>
+    <table class="table center">
+      <tbody>
+      <tr>
+        <td>{{ticket.passengerTitle}} {{ticket.passengerFirstName}} {{ticket.passengerLastName}}</td>
+      </tr>
+      <tr>
+        <td>{{ticket.departureAirport.city}} ({{ticket.departureAirport.code}}) - {{ticket.arrivalAirport.city}} ({{ticket.arrivalAirport.code}})</td>
+      </tr>
+      <tr>
+        <td>Departure Date:</td>
+        <td>{{ticket.departureDate}} </td>
+      </tr>
+      <tr>
+        <td>Arrival Date:</td>
+        <td>{{ticket.arrivalDate}} </td>
+      </tr>
+      <td class="crud">
+        <div class="icons row justify-content-center no-gutters">
+          <div class="read">
+            <BUTTON (click)="onClose()">Close</BUTTON>
+          </div>
+        </div>
+      </td>
+      </tbody>
+    </table>
+  </article>
+</div>

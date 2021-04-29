@@ -9,7 +9,7 @@ import {AirlineRoutes} from './core/enums/generic/routes.enum';
 
 
 const routes: Routes = [
-  {path: '', component: HomeComponent},
+  {path: '', component: HomeComponent, children: [{path: 'guid', loadChildren: () => import('./shared/components/search-by-guid/search-by-guid.module').then(m => m.SearchByGuidModule)}]},
   {path: 'auth', component: HomeComponent},
   {path: AirlineRoutes.home, component: HomeComponent},
   {path: AirlineRoutes.about, component: AboutComponent},

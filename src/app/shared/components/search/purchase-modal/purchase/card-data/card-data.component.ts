@@ -79,7 +79,7 @@ export class CardDataComponent implements OnInit {
     this.payment.passenger.lastName = personalData.lastName;
     this.payment.passenger.phone = personalData.phone;
     this.payment.passenger.title = personalData.title;
-    // sessionStorage.clear();
+    sessionStorage.clear();
 
     const somethig = this.purchaseService.purchaseTicket(this.payment);
     somethig.subscribe(data => {

@@ -105,10 +105,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   onSearchAviaDestination(): void {
-    this.isSearching = !this.isSearching;
     console.log(this.search);
-    this.router.navigate(['search'], {state: {data: this.search}});
-    this.search = '';
+    this.isSearching = !this.isSearching;
+
+    this.router.navigate(['guid'], {relativeTo: this.route, queryParams: {guid: this.search}, queryParamsHandling: 'merge'});
+    // this.isSearching = !this.isSearching;
+    // this.router.navigate(['guid']);
   }
 
   onOpenAdminDashboard() {

@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {MenuItem} from 'primeng/api';
 import {CardData, PassportData, PersonalData} from '../../../../../core/models/payment.model';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-purchase',
@@ -14,7 +15,8 @@ export class PurchaseComponent implements OnInit {
   @Input() passportData: PassportData;
   @Input() cardData: CardData;
 
-  constructor() {
+  constructor(private router: Router,
+              private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
@@ -34,4 +36,9 @@ export class PurchaseComponent implements OnInit {
     ];
   }
 
+  onClose(): void {
+    this.router.navigate(['../'], {relativeTo: this.route, queryParamsHandling: 'merge'});
+    // window.location.reload();
+
+  }
 }

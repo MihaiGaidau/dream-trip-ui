@@ -65,14 +65,16 @@ export class SearchComponent implements OnInit {
     this.fromDestionationCityWeather$ = this.route.queryParamMap.pipe(
       switchMap((params: Params) => {
         console.log(params);
-        return this.searchFlightService.getWeatherByCity(params.params.departureCityName);
+        console.log('oras');
+        console.log(params.params.departureCity);
+        return this.searchFlightService.getWeatherByCity(params.params.departureCity);
       })
     );
 
     this.toDestinationCityWeather$ = this.route.queryParamMap.pipe(
       switchMap((params: Params) => {
         console.log(params);
-        return this.searchFlightService.getWeatherByCity(params.params.arrivalCityName);
+        return this.searchFlightService.getWeatherByCity(params.params.arrivalCity);
       })
     );
 
