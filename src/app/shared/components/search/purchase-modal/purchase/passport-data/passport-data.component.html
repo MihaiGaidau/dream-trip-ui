@@ -1,0 +1,35 @@
+<form class="form" [formGroup]="passportDataForm" (ngSubmit)="onSubmit()">
+  <!-- passport data -->
+  <div class="form-group">
+    <label>Passport Number</label>
+    <input name="" class="form-control" formControlName="passportNumber" placeholder="1234 5678 9012 3456"
+           type="text"
+           [class.is-invalid]="passportDataForm.get('passportNumber').invalid && passportDataForm.get('passportNumber').touched">
+  </div>
+  <div class="form-group">
+    <label>Citizenship</label>
+    <input name="" class="form-control" formControlName="citizenship" placeholder="Moldova" type="text"
+           [class.is-invalid]="passportDataForm.get('citizenship').invalid && passportDataForm.get('citizenship').touched">
+  </div>
+  <div class="form-group">
+    <label>Country Code</label>
+    <input name="" class="form-control" formControlName="countryCode" placeholder="Ex. John Website" type="text"
+           [class.is-invalid]="passportDataForm.get('countryCode').invalid && passportDataForm.get('countryCode').touched">
+  </div>
+
+  <div class="form-group">
+    <label>Issuing Country</label>
+    <input class="form-control" formControlName="issuingCountry" placeholder="Moldova" type="text"
+           [class.is-invalid]="passportDataForm.get('issuingCountry').invalid && passportDataForm.get('issuingCountry').touched">
+  </div>
+  <div class="form-group">
+    <label>Expiration Date</label>
+    <input name="" class="form-control" formControlName="passportExpirationDate" placeholder="01/23" type="date"
+           [class.is-invalid]="passportDataForm.get('passportExpirationDate').invalid && passportDataForm.get('passportExpirationDate').touched">
+  </div>
+  <div class="row p-nogutter p-justify-between">
+    <button (click)="prevPage()">Back</button>
+    <button (click)="nextPage()"> Next</button>
+  </div>
+</form>
+

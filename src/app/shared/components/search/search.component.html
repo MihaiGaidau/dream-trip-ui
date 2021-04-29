@@ -62,7 +62,7 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let flight of (flights$ | async)?.content">
+      <tr *ngFor="let flight of flights">
         <th scope="row">{{flight.id}}</th>
         <td>{{flight.number}}</td>
         <td>{{flight.departureAirport?.city}}</td>
@@ -74,7 +74,7 @@
         <td class="crud">
           <div class="icons row justify-content-center no-gutters">
             <div class="read">
-              <i class="fas fa-credit-card" (click)="onOpenPurchaseModal()"></i>
+              <i class="fas fa-credit-card" (click)="onOpenPurchaseModal(flight.id)"></i>
             </div>
           </div>
         </td>
@@ -82,10 +82,6 @@
       </tbody>
     </table>
   </div>
-
-  <app-purchase-modal
-    *ngIf="displayPurchaseModal"
-    (closeModal)="onClosePurchaseModal($event)">
-  </app-purchase-modal>
+  <router-outlet></router-outlet>
 </div>
 

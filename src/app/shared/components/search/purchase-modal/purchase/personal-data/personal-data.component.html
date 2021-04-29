@@ -1,0 +1,35 @@
+  <form class="form" [formGroup]="personalDataForm" (ngSubmit)="onSubmit()">
+    <!-- personal data -->
+    <div class="form-group">
+      <label>Title</label>
+      <input name="" class="form-control" formControlName="title" placeholder="Mr" type="text"
+             [class.is-invalid]="personalDataForm.get('title').invalid && personalDataForm.get('title').touched">
+    </div>
+    <div class="form-group">
+      <label>First Name</label>
+      <input name="" class="form-control" formControlName="firstName" placeholder="John" type="text"
+             [class.is-invalid]="personalDataForm.get('firstName').invalid && personalDataForm.get('firstName').touched">
+    </div>
+    <div class="form-group">
+      <label>Last name</label>
+      <input name="" class="form-control" formControlName="lastName" placeholder="Wick" type="text"
+             [class.is-invalid]="personalDataForm.get('lastName').invalid && personalDataForm.get('lastName').touched">
+    </div>
+    <div class="form-group">
+      <label>Date of birth</label>
+      <input name="" class="form-control" formControlName="dateOfBirth" placeholder="Wick" type="date"
+             [class.is-invalid]="personalDataForm.get('dateOfBirth').invalid && personalDataForm.get('dateOfBirth').touched">
+    </div>
+    <div class="form-group">
+      <label>Phone number</label>
+      <input name="" class="form-control" formControlName="phone" placeholder="Wick" type="text"
+             [class.is-invalid]="personalDataForm.get('phone').invalid && personalDataForm.get('phone').touched">
+    </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input name="" class="form-control" formControlName="email" placeholder="Wick" type="email"
+             [class.is-invalid]="personalDataForm.get('email').invalid && personalDataForm.get('email').touched">
+    </div>
+    <button (click)="nextPage()"> Next</button>
+  </form>
+

@@ -2,26 +2,36 @@
   <div><span class="close-button" (click)="onClose()">X</span></div>
   <article class="card-body">
     <h4 class="card-title mb-4 mt-1 font-weight-bold">Sign in</h4>
-    <form class="form" [formGroup]="formLogin">
+    <form class="form" [formGroup]="buyForm" (ngSubmit)="onPurchase()">
+
+
+
       <div class="form-group">
-        <label>Your username</label>
-        <input name="" class="form-control" formControlName="username" placeholder="username" type="username"
-               [class.is-invalid]="formLogin.get('username').invalid && formLogin.get('username').touched">
+        <label>Card number</label>
+        <input name="" class="form-control" formControlName="cardNumber" placeholder="1234 5678 9012 3456" type="number"
+               [class.is-invalid]="buyForm.get('cardNumber').invalid && buyForm.get('cardNumber').touched">
+      </div>
+      <div class="form-group">
+        <label>Name on card</label>
+        <input name="" class="form-control" formControlName="cardHolderName" placeholder="Ex. John Website" type="name"
+               [class.is-invalid]="buyForm.get('cardHolderName').invalid && buyForm.get('cardHolderName').touched">
 
       </div>
-      <div class="form-group">
-        <a class="float-right" href="#">Forgot?</a>
-        <label>Your password</label>
-        <input class="form-control" formControlName="password" placeholder="******" type="password"
-               [class.is-invalid]="formLogin.get('password').invalid && formLogin.get('password').touched">
-      </div>
-      <div class="form-group">
-        <div class="checkbox">
-          <label> <input type="checkbox"> Save password </label>
+      <div class="row">
+        <div class="form-group">
+          <label>Name on card</label>
+          <input class="form-control" formControlName="cardExpirationDate" placeholder="01/21" type="date"
+                 [class.is-invalid]="buyForm.get('cardExpirationDate').invalid && buyForm.get('cardExpirationDate').touched">
+        </div>
+        <div class="form-group">
+<!--          <a class="float-right" href="#">Forgot?</a>-->
+          <label>Security code</label>
+          <input class="form-control" formControlName="cardCvv" placeholder="******" type="password"
+                 [class.is-invalid]="buyForm.get('cardCvv').invalid && buyForm.get('cardCvv').touched">
         </div>
       </div>
       <div class="form-group">
-        <button type="submit" class="btn btn-primary btn-block" (click)="onPurchase()"> Login</button>
+        <button type="submit" class="btn btn-primary btn-block"> Login</button>
       </div>
     </form>
   </article>

@@ -1,11 +1,11 @@
 import {Component, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {Departure} from '../../../core/models/departure.model';
 import {SearchFlightService} from '../../../core/services/search-flight.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Observable} from 'rxjs';
 import {Weather} from '../../../core/models/weather.model';
-import {City} from "../../../core/enums/generic/city.enum";
+import {City} from '../../../core/enums/generic/city.enum';
+import {UtilityService} from '../../../core/services/utility.service';
 
 @Component({
   selector: 'app-search-flight',
@@ -58,16 +58,20 @@ export class SearchFlightComponent implements OnInit {
   }
 
   public onSubmit(): void {
-    const departure = {
-      departureDate: this.departureForm.value.departureDate,
-      departureCity: this.departureForm.value.departureCity,
-      oneWay: this.departureForm.value.oneWay,
-      ticketPrice: this.departureForm.value.ticketPrice,
-      arrivalDate: this.departureForm.value.arrivalDate,
-      arrivalCity: this.departureForm.value.arrivalCity,
-    } as Departure;
-    this.router.navigate(['search'], {state: {data: departure}});
 
+    this.router.navigate(['search'], {relativeTo: this.route, queryParams: this.departureForm.value, queryParamsHandling: 'merge'});
+
+  }
+
+  public parseDepartureData(event): void {
+    console.log(event);
+    this.departureForm.value.departureDate = UtilityService.parseDate(event as Date);
+    console.log(UtilityService.parseDate(event as Date));
+  }
+
+  public parseArrivalDate(event): void {
+    this.departureForm.value.arrivalDate = UtilityService.parseDate(event as Date);
+    console.log(UtilityService.parseDate(event as Date));
   }
 
   public getValuesFromEnum(): void {

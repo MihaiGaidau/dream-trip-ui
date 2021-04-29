@@ -1,10 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute, ParamMap, Params, Router} from '@angular/router';
 import {FlightService} from '../../../core/services/flight.service';
-import {Observable} from 'rxjs';
-import {Flight} from '../../../core/models/flight.model';
+import {Observable, of, Subscription} from 'rxjs';
+import {Flight, FlightData} from '../../../core/models/flight.model';
 import {PeriodofDay, Weather, WeatherDetails} from '../../../core/models/weather.model';
 import {SearchFlightService} from '../../../core/services/search-flight.service';
+import {switchMap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-search',
@@ -23,6 +24,8 @@ export class SearchComponent implements OnInit {
   public arrivalCityName: string;
   public periodOfDay: PeriodofDay;
   public displayPurchaseModal: boolean;
+  private getSearchSubscription: Subscription;
+  public flights: FlightData[];
 
   constructor(private readonly flightService: FlightService,
               private readonly router: Router,
@@ -31,20 +34,47 @@ export class SearchComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (window.history.state && window.history.state.data) {
-      this.search = window.history.state.data;
-      this.getWeatherByCity();
-      console.log(this.search);
-      this.flights$ = this.searchFlightService.searchFlight(this.search);
-
-    }
+    this.getSearchFlights();
+    // if (window.history.state && window.history.state.data) {
+    //   this.search = window.history.state.data;
+    this.getWeatherByCity();
+    //   console.log(this.search);
+    //   this.flights$ = this.searchFlightService.searchFlight(this.search);
+    //
+    // }
     this.checkDayPeriod();
 
   }
+  private getSearchFlights(): void{
+    this.getSearchSubscription = this.route.queryParamMap.pipe(
+      switchMap((params: Params) => {
+        console.log(params);
+        return this.searchFlightService.searchFlight(params.params);
+        // console.log(params);
+        // return of();
+      })
+    ).subscribe(flights => {
+      console.log(flights);
+      this.flights = flights.content;
+    }, error => {
+      console.log(error);
+    });
+  }
 
   public getWeatherByCity(): void {
-    this.fromDestionationCityWeather$ = this.searchFlightService.getWeatherByCity(this.search.fromDestination);
-    this.toDestinationCityWeather$ = this.searchFlightService.getWeatherByCity(this.search.toDestination);
+    this.fromDestionationCityWeather$ = this.route.queryParamMap.pipe(
+      switchMap((params: Params) => {
+        console.log(params);
+        return this.searchFlightService.getWeatherByCity(params.params.departureCityName);
+      })
+    );
+
+    this.toDestinationCityWeather$ = this.route.queryParamMap.pipe(
+      switchMap((params: Params) => {
+        console.log(params);
+        return this.searchFlightService.getWeatherByCity(params.params.arrivalCityName);
+      })
+    );
 
     this.fromDestionationCityWeather$.subscribe((departure) => {
 
@@ -57,9 +87,7 @@ export class SearchComponent implements OnInit {
           feels_like: value.main.feels_like,
           temp_min: value.main.temp_min,
           temp_max: value.main.temp_max,
-
         };
-
       });
     });
     this.toDestinationCityWeather$.subscribe((arrival) => {
@@ -72,9 +100,7 @@ export class SearchComponent implements OnInit {
           feels_like: value.main.feels_like,
           temp_min: value.main.temp_min,
           temp_max: value.main.temp_max,
-
         };
-
       });
     });
   }
@@ -86,18 +112,18 @@ export class SearchComponent implements OnInit {
       this.periodOfDay.sunsetTime = sunsetTime.toLocaleTimeString();
       const currentDate = new Date();
       this.periodOfDay.isDay = (currentDate.getTime() < sunsetTime.getTime());
-
     }
   }
 
-  public onOpenPurchaseModal() {
-    this.displayPurchaseModal = !this.displayPurchaseModal;
+  public onOpenPurchaseModal(id: any) {
+    console.log(id);
+    sessionStorage.setItem('ticketId', id);
+    this.router.navigate(['purchase-modal'], {relativeTo: this.route, queryParamsHandling: 'merge'});
   }
 
   public onClosePurchaseModal(isLoggin: boolean): void {
     console.log(isLoggin);
     this.displayPurchaseModal = isLoggin;
   }
-
 
 }

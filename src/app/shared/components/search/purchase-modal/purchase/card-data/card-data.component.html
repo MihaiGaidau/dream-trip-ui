@@ -1,0 +1,31 @@
+<form class="form" [formGroup]="cardDataForm" (ngSubmit)="onSubmit()">
+  <!-- card data -->
+  <div class="form-group">
+    <label>Card number</label>
+    <input name="" class="form-control" formControlName="cardNumber" placeholder="1234 5678 9012 3456" type="text"
+           [class.is-invalid]="cardDataForm.get('cardNumber').invalid && cardDataForm.get('cardNumber').touched">
+  </div>
+  <div class="form-group">
+    <label>Name on card</label>
+    <input name="" class="form-control" formControlName="cardHolderName" placeholder="Ex. John Website" type="text"
+           [class.is-invalid]="cardDataForm.get('cardHolderName').invalid && cardDataForm.get('cardHolderName').touched">
+
+  </div>
+  <div class="row">
+    <div class="form-group">
+      <label>Expiration date</label>
+      <input class="form-control" formControlName="cardExpirationDate" placeholder="01/21" type="date"
+             [class.is-invalid]="cardDataForm.get('cardExpirationDate').invalid && cardDataForm.get('cardExpirationDate').touched">
+    </div>
+    <div class="form-group">
+      <!--          <a class="float-right" href="#">Forgot?</a>-->
+      <label>Security code</label>
+      <input class="form-control" formControlName="cardCvv" placeholder="******" type="password"
+             [class.is-invalid]="cardDataForm.get('cardCvv').invalid && cardDataForm.get('cardCvv').touched">
+    </div>
+
+  </div>
+  <button (click)="prevPage()">Back</button>
+
+  <button (click)="finish()"> Finish</button>
+</form>
